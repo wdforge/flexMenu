@@ -46,7 +46,9 @@
 				'linkTitleAll' : 'Open/Close Menu', // [string] If we hit the cutoff, what should the title of the "view more" button be?
 				'showOnHover' : true, // [boolean] Should we we show the menu on hover? If not, we'll require a click. If we're on a touch device - or if Modernizr is not available - we'll ignore this setting and only show the menu on click. The reason for this is that touch devices emulate hover events in unpredictable ways, causing some taps to do nothing.
 				'popupAbsolute' : true, // [boolean] Should we absolutely position the popup? Usually this is a good idea. That way, the popup can appear over other content and spill outside a parent that has overflow: hidden set. If you want to do something different from this in CSS, just set this option to false.
-				'undo' : false // [boolean] Move the list items back to where they were before, and remove the "View More" link.
+				'undo' : false, // [boolean] Move the list items back to where they were before, and remove the "View More" link.
+				'subItemClass' : 'flexMenu-subitem',
+				'subItemOpenClass' : 'flexMenu-subitem-open'
 			}, options);
 		this.options = s; // Set options on object
 		checkFlexObject = $.inArray(this, flexObjects); // Checks if this object is already in the flexObjects array
@@ -56,6 +58,7 @@
 			flexObjects.push(this); // Add this object to the flexObjects array
 		}
 		return this.each(function () {
+
 			var $this = $(this),
 				$items = $this.find('> li'),
 				$self = $this,
@@ -72,11 +75,30 @@
 				allInPopup = false,
 				$menu,
 				i;
+
+				$items.each(function(){
+					if($(this).children("ul").length)
+					{
+						$(this).addClass(s.subItemClass);
+						$(this).hover(
+							function() {
+								$(this).addClass(s.subItemOpenClass);
+								$(this).removeClass(s.subItemClass);
+							}, 
+							function() {
+								$(this).removeClass(s.subItemOpenClass);
+								$(this).addClass(s.subItemClass);
+							}
+						); 						
+					}
+				});
+
 			function needsMenu($itemOfInterest) {
 				var result = (Math.ceil($itemOfInterest.offset().top) >= (firstItemTop + firstItemHeight)) ? true : false;
 				// Values may be calculated from em and give us something other than round numbers. Browsers may round these inconsistently. So, let's round numbers to make it easier to trigger flexMenu.
 				return result;
 			}
+
 			if (needsMenu($lastItem) && numItems > s.threshold && !s.undo && $this.is(':visible')) {
 				var $popup = $('<ul class="flexMenu-popup" style="display:none;' + ((s.popupAbsolute) ? ' position: absolute;' : '') + '"></ul>'),
 				// Move all list items after the first to this new popup ul
