@@ -82,11 +82,11 @@ If this is true, we'll move the list items back to where they were before, and r
 Should we absolutely position the popup? Usually this is a good idea. That way, the popup can appear over other content and spill outside a parent that has overflow: hidden set. If you want to do something different from this in CSS, just set this option to false.
 
 ###subItemClass
-(string, defaults to 'flexMenu-subitem')
+(string, CSS-class name, defaults to 'flexMenu-subitem')
 Default showing right arrow.
 
 ###subItemOpenClass
-(string, defaults to 'flexMenu-subitem-open')
+(string, CSS-class name, defaults to 'flexMenu-subitem-open')
 Show by hover down arrow.
 
 ##License
