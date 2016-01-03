@@ -1,0 +1,53 @@
+﻿/*theme settings*/
+.grad, .flexMenu-popup,.menu-sub {
+  background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+  background: linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); 
+}
+
+.menu a, .menu label{ color: #000;font-family: 'Quantico', sans-serif;font-weight: 300; font-size: 12px;}
+.menu a:hover {background-color: #006363; color: #fff;}
+
+.menu hr {}
+.menu-sub hr{}
+.flexMenu-popup hr{}
+
+.flexMenu-viewMore > a {background:#FF9640 url(right.gif) no-repeat 5px 5px;}
+.flexMenu-viewMore > a:hover {background: #FF7400 url(right.gif) no-repeat 5px 5px; }
+.flexMenu-viewMore.active > a {background: #FF7400 url(down.gif) no-repeat 5px 5px;}
+
+.flexMenu-popup a:hover {background-color: #006363;color: #fff;}
+.menu{ border-radius:5px;padding-right: 15px;padding-left: 15px; padding-top:0;padding-bottom:0;}
+/*.menu :first-child { padding-left: 5px}*/
+.menu-sub {border: 1px solid #aaa; }
+
+/*!!!new!!!*/
+.flexMenu-subitem > a {background: transparent url(right.gif) no-repeat 5px 5px;  }
+.flexMenu-subitem > ul > li {padding:10px 5px 10px 10px; }
+.flexMenu-subitem-open > a {background: transparent url(down.gif) no-repeat 5px 5px;  }
+/*end theme settings*/
+
+
+.menu {list-style-type: none;margin: 0;}
+.js .menu { height: 1.5em;overflow: hidden;}
+.menu > li { margin: 0 0 0 1em; float:left;}
+.menu > li:first-child {margin-left: 0;}
+.menu a { text-decoration: none; display: block;padding: .25em .25em .25em .25em;}
+.flex-multi {float: left;}
+.flex-multi + .flex-multi {float: right;}
+.clear {clear: both;}
+.flexMenu-popup {list-style-type: none;padding: 10px;margin: 0;}
+.lt-ie8 .flexMenu-popup {}
+.flexMenu-popup a {display: block;}
+.flexMenu-popup a:hover {display: block;}
+.flexMenu-viewMore > a {padding-left:20px; display:inline-block;}
+.menu-sub {display: none;position: absolute;list-style-type: none;padding: 10px 0px 10px 10px; border-radius: 0 0 10px 10px; }
+li:hover > .menu-sub {display: block;}
+/*!!!new!!!*/
+.flexMenu-subitem a, .flexMenu-subitem-open a {padding-left:20px; display:inline-block;}
+.flexMenu-subitem-open :first-child a{padding-top:5px;}
+.flexMenu-subitem-open :nth-child(1) a {padding-top:5px;padding-bottom:5px;}
